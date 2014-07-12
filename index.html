@@ -19,6 +19,41 @@
     })
     </script>
 
+    <style type="text/css">
+    .add_comment {
+      background: -webkit-linear-gradient(top, rgba(40, 40, 40, 1.0), 
+      rgba(35, 35, 35, 1.0) 50%, 
+      rgba(10, 10, 10, 1.0) 50%, rgba(0, 0, 0, 1.0));
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      color: rgba(255, 255, 255, 0.8);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+      border-top: 2px solid rgba(0, 0, 0, 1);
+      display: none;
+      width:250px;
+      height:30px;
+      position:fixed;
+      bottom:0;
+      text-align:center;
+      right: 5px;
+      z-index: 9999;
+    }
+</style>
+<script>
+$(function(){
+ if ($(window).scrollTop()>="250") $("#ToComments").fadeIn("slow")
+ $(window).scroll(function(){
+  if ($(window).scrollTop()<="250" | $(window).scrollTop()>=$("#comments").offset().top) $("#ToComments").fadeOut("slow")
+   else $("#ToComments").fadeIn("slow")
+ });
+
+ $("#ToComments").click(function(){$("html,body").animate({scrollTop:$("#comments").offset().top},"slow")})
+});
+</script>
+
   </head>
 
   <body>
@@ -110,7 +145,7 @@ invoke CloseHandle,[hMutex]
 
 <br>
 <h2>
-<a name="comments" class="anchor" href="#comments"><span class="octicon octicon-link"></span></a>Оставить комментарий</h2>
+<a id="comments" name="comments" class="anchor" href="#comments"><span class="octicon octicon-link"></span></a>Оставить комментарий</h2>
 
   <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -126,9 +161,10 @@ invoke CloseHandle,[hMutex]
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
+
+<a id="ToComments" href="#coents" class="add_comment">Оставить Комментарий</a>
+
       </section>
     </div>
-    
   </body>
 </html>
