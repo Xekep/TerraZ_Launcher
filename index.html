@@ -47,7 +47,7 @@
 $(function(){
  if ($(window).scrollTop()>="250") $("#ToComments").fadeIn("slow")
  $(window).scroll(function(){
-  if ($(window).scrollTop()<="250" | $(window).scrollTop()>=$("#comments").offset().top) $("#ToComments").fadeOut("slow")
+  if ($(window).scrollTop()<="250" | $(window).scrollTop()>=$("#comments").offset().top | $(window).scrollTop()>=$(document).height()-"999") $("#ToComments").fadeOut("slow")
    else $("#ToComments").fadeIn("slow")
  });
 
